@@ -1,0 +1,16 @@
+table {
+    border: 2px solid black; 
+    width: 40%;
+
+    
+}
+.head_table{
+    background-color: #6CD2FE;
+    text-align: left;
+    }
+.toRight{
+    float: right;
+}
+.margin_gender{
+    margin-left: 55px;
+}
