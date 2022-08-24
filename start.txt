@@ -1,0 +1,6 @@
+เริ่มต้นเครื่องใหม่
+
+1.) git clone http............
+2.) git config --global user.email "s6303051623055@email.kmutnb.ac.th"
+3.) git config --gloval user.name "Niruthub"
+4.) 
