@@ -20,7 +20,7 @@
                 <tr><td colspan="2" style="text-align: center;"><input type="submit" value="Login"></td></tr>
             </table>
             
-            <div align="center"> ถ้ายังไม่ได้เป็นสมาชิก <a href="register.html" target="_blank" rel="noopener noreferrer">กรุณาสมัครสมาชิก</a></div>
+            <div align="center"> ถ้ายังไม่ได้เป็นสมาชิก <a href="register.php" target="_blank" rel="noopener noreferrer">กรุณาสมัครสมาชิก</a></div>
         </form>
         
     </div>

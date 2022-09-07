@@ -1,3 +1,9 @@
+<?php 
+session_start(); 
+if(isset($_SESSION['id'])){
+    header("Location: index.php");
+    die();
+} ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +32,7 @@
                 <tr><td>email </td><td class="toRight"><input type="email" name="firstname" size="80%"></td></tr>
                 <tr><td colspan="2" style="text-align: center;"><input type="submit" value="สมัครสมาชิก"></td></tr>
             </table>
-            <div align="center"><a href="index.html" target="_blank" rel="noopener noreferrer">กลับไปหน้าหลัก</a></div>
+            <div align="center"><a href="index.php" target="_blank" rel="noopener noreferrer">กลับไปหน้าหลัก</a></div>
         </form>
     
 </body>

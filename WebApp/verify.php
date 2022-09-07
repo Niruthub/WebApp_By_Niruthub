@@ -1,3 +1,9 @@
+<?php 
+session_start(); 
+if(isset($_SESSION['id'])){
+    header("Location: index.php");
+    //die();
+} ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,14 +18,22 @@
 <div align="center">
      <br>
     <?php
+
 $user = $_POST["login"];
 $pass = $_POST["lastname"];
 
 if($user == "admin" and $pass == "ad1234"){
     echo "<h2>ยินดีต้อนรับคุณ ADMIN</h2>"."<BR>";
+    $_SESSION["username"]=$_POST["login"];
+    $_SESSION["role"]="a";
+    $_SESSION['id']=session_id();
+    //header("Location: index.php");
 }
 elseif($user == "member" and $pass == "mem1234"){
     echo "<h2>ยินดีต้อนรับคุณ MEMBER</h2>"."<BR>";
+    $_SESSION["username"]=$_POST["login"];
+    $_SESSION["role"]="m";
+    $_SESSION['id']=session_id();
 }
 else
     echo "<h2>ชื่อบัญชีหรือรหัสผ่านไม่ถูกต้อง</h2>"."<BR>"; 
