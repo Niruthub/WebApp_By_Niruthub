@@ -24,6 +24,7 @@ elseif($user == "member" and $pass == "mem1234"){
 else
     echo "<h2>ชื่อบัญชีหรือรหัสผ่านไม่ถูกต้อง</h2>"."<BR>"; 
 ?>
+<a href="index.php" rel="noopener noreferrer">กลับไปหน้าหลัก</a>
 </div>
 </body>
 </html>
