@@ -19,6 +19,25 @@ if(isset($_SESSION['id'])){
     <!--Icon-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <title>Login page</title>
+
+    <script>
+        function password_show_hide(){
+            let x = document.getElementById("password");
+            let show_eye = document.getElementById("show_eye");
+            let hide_eye = document.getElementById("hide_eye");
+            hide_eye.classList.remove("d-none");
+            if(x.type ==="password"){ // === คือการเปรียบเทียบชนิดข้อมูลด้วย
+                x.type = "text";
+                show_eye.style.display = "none";
+                hide_eye.style.display = "block";
+            }else{
+                x.type = "password";
+                show_eye.style.display = "block";
+                hide_eye.style.display = "none";
+            }
+        }
+    </script>
+
 </head>
 <body>
     <div class="container-lg">
@@ -45,7 +64,13 @@ if(isset($_SESSION['id'])){
                         </div>
                         <div class="form-group mb-4">
                             <label class="form-label">Password:</label>
-                            <input type="password" name="pwd" class="form-control">
+                            <div class="input-group">
+                            <input type="password" name="pwd" class="form-control" id="password">
+                            <span class="input-group-text" onclick="password_show_hide();">
+                                <i class="bi bi-eye-fill" id="show_eye"></i>
+                                <i class="bi bi-eye-slash-fill d-none" id="hide_eye"></i>
+                            </span>
+                        </div>
                         </div>
                         <center>
                             <button type="submit" class="btn btn-secondary btn-sm">Login</button>

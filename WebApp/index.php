@@ -18,6 +18,14 @@ session_start();
     <!--Icon-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <title>Web App_Nirut_mini</title>
+
+    <script>
+        function myFunction1(){
+            let r = confirm("ต้องการจะลบจริงหรือไม่");
+            return r;
+        }
+    </script>
+
 </head>
 <?php 
      
@@ -88,7 +96,7 @@ session_start();
             for($i=1;$i<=10;$i++){
             echo "<tr><td><a href='post.php?id=$i' style='text-decoration:none;'>กระทู้ที่ $i</a></td>";
             if($_SESSION['role']=='a'){
-                echo "<td><a href=delete.php?id=$i class='btn btn-danger btn-sm'><i class='bi bi-trash'></i></a></td>";
+                echo "<td><a href=delete.php?id=$i class='btn btn-danger btn-sm' onclick='return myFunction1();'><i class='bi bi-trash'></i></a></td>";
             }
             echo "</tr>";
             }
