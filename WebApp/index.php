@@ -44,9 +44,14 @@ session_start();
                 --ทั้งหมด--
             </button>
             <ul class="dropdown-menu" aria-labelledby="buttton2">
-                <li><a href="#" class="dropdown-item">ทั้งหมด</a></li>
-                <li><a href="#" class="dropdown-item">เรื่องเรียน</a></li>
-                <li><a href="#" class="dropdown-item">เรื่องทั่วไป</a></li>
+                <?php
+                    $conn = new PDO("mysql:host=localhost;dbname=webboard;charset=utf8","root","");
+                    $sql = "SELECT * FROM category";
+                    foreach($conn->query($sql) as $row){
+                        echo "<li><a href='#' class='dropdown-item'>".$row['name']."</a></li>";
+                    }
+                    $conn=null;
+                ?> 
             </ul>
             </span>
         </div>
@@ -78,9 +83,14 @@ session_start();
                 --ทั้งหมด--
             </button>
             <ul class="dropdown-menu" aria-labelledby="buttton2">
-                <li><a href="#" class="dropdown-item">ทั้งหมด</a></li>
-                <li><a href="#" class="dropdown-item">เรื่องเรียน</a></li>
-                <li><a href="#" class="dropdown-item">เรื่องทั่วไป</a></li>
+                <?php
+                    $conn = new PDO("mysql:host=localhost;dbname=webboard;charset=utf8","root","");
+                    $sql = "SELECT * FROM category";
+                    foreach($conn->query($sql) as $row){
+                        echo "<li><a href='#' class='dropdown-item'>".$row['name']."</a></li>";
+                    }
+                    $conn=null;
+                ?> 
             </ul>
             </span>
         </div>
@@ -92,15 +102,21 @@ session_start();
     <table class="table table-striped">
     
         <?php 
-            //$n = 1;
-            for($i=1;$i<=10;$i++){
-            echo "<tr><td><a href='post.php?id=$i' style='text-decoration:none;'>กระทู้ที่ $i</a></td>";
+            $conn = new PDO("mysql:host=localhost;dbname=webboard;charset=utf8","root","");
+            $sql_post = "SELECT * FROM post";
+            $sql_category = "SELECT * FROM category";
+            $sql_join = "SELECT category.name, post.title, user.login ,post.post_date FROM post
+            INNER JOIN category ON category.id=post.cat_id
+            INNER JOIN user ON user.id=post.user_id";
+            foreach($conn->query($sql_join) as $row){
+            echo "<tr><td>[".$row['name']."] <a href='' style='text-decoration:none;'>".$row['title']." </a><br>".$row['login'].
+            " - ".$row['post_date']."</td>";
             if($_SESSION['role']=='a'){
                 echo "<td><a href=delete.php?id=$i class='btn btn-danger btn-sm' onclick='return myFunction1();'><i class='bi bi-trash'></i></a></td>";
             }
             echo "</tr>";
             }
-
+            $conn=null;
         ?>  
     
     </table>

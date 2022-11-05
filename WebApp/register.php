@@ -30,11 +30,11 @@ if(isset($_SESSION['id'])){
         <div class="col-md-6">
             <?php 
                 if(isset($_SESSION['add_login'])){
-                    if($_SESSION['add_login']=='error')
+                    if($_SESSION['add_login']=='error'){
                     echo "<div class = 'alert alert-danger'>ชื่อบัญชีซ้ำหรือฐานข้อมูลมีปัญหา</div>";
-                }else{
-                    echo "<div class = 'alert alert-success'>เพิ่มบัญชีเรียบร้อยแล้ว</div>";
+                    }else{echo "<div class = 'alert alert-success'>เพิ่มบัญชีเรียบร้อยแล้ว</div>";}
                 }
+                elseif(!isset($_SESSION['add_login'])){echo "";}
                 unset($_SESSION['add_login']);
             ?>
 

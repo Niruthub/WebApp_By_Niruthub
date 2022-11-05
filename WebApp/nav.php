@@ -15,7 +15,7 @@
 <?php }else{ ?>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #D3D3D3;">
         <div class="container-fluid">
-            <a href="index.php" class="navbar-brand"><i class="bi bi-house"></i>Home</a>
+            <a href="index.php" class="navbar-brand"><i class="bi bi-house"></i>  Home</a>
             <ul class="navbar-nav">
                 <div class="dropdown">
                     <a class="btn btn-outline-secondary dropdown-toggle btn-sm" type="button" id="button1" data-bs-toggle="dropdown" aria-expanded="false">
