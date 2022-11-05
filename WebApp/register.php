@@ -31,8 +31,8 @@ if(isset($_SESSION['id'])){
             <?php 
                 if(isset($_SESSION['add_login'])){
                     if($_SESSION['add_login']=='error'){
-                    echo "<div class = 'alert alert-danger'>ชื่อบัญชีซ้ำหรือฐานข้อมูลมีปัญหา</div>";
-                    }else{echo "<div class = 'alert alert-success'>เพิ่มบัญชีเรียบร้อยแล้ว</div>";}
+                    echo "<div class = 'alert alert-danger'><i class='bi bi-dash-circle'></i>  ชื่อบัญชีซ้ำหรือฐานข้อมูลมีปัญหา</div>";
+                    }else{echo "<div class = 'alert alert-success'><i class='bi bi-person-check'></i>  เพิ่มบัญชีเรียบร้อยแล้ว</div>";}
                 }
                 elseif(!isset($_SESSION['add_login'])){echo "";}
                 unset($_SESSION['add_login']);

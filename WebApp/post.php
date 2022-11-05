@@ -14,7 +14,12 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <!--Icon-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-  
+    <script>
+        function myFunction1(){
+            let r = confirm("กรุณายืนยันจะแสดงความคิดเห็น");
+            return r;
+        }
+    </script>
     <title>post</title>
 </head>
 <body>
@@ -84,7 +89,7 @@
                                     <i class="bi bi-box-arrow-up-right me-1"></i>
                                     <a href="register.php" target="_blank" rel="noopener noreferrer">กรุณาไปสมัครสมาชิกก่อน</a>
                                <?php }else{ ?>
-                                    <button type="submit" class="btn btn-success text-white btn-sm">
+                                    <button type="submit" class="btn btn-success text-white btn-sm" onclick="return myFunction1();">
                                     <i class="bi bi-box-arrow-up-right me-1"></i>ส่งข้อความ</button>
                             <?php } ?>
                             </center>

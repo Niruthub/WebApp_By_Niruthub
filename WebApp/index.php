@@ -120,7 +120,7 @@ session_start();
             echo "<tr><td>[".$row['name']."] <a href='post.php?id=$row[id]' style='text-decoration:none;'>".$row['title']." </a><br>".$row['login'].
             " - ".$row['post_date']."</td>";
             if($_SESSION['role']=='a'){
-                echo "<td><a href=delete.php?id=$i class='btn btn-danger btn-sm' onclick='return myFunction1();'><i class='bi bi-trash'></i></a></td>";
+                echo "<td><a href=delete.php?id=$row[id] class='btn btn-danger btn-sm' onclick='return myFunction1();'><i class='bi bi-trash'></i></a></td>";
             }
             echo "</tr>";
             }

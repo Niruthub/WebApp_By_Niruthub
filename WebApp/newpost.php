@@ -11,6 +11,12 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <!--Icon-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <script>
+        function myFunction1(){
+            let r = confirm("ต้องการที่จะตั้งกระทู้ใหม่ใช่หรือไม่");
+            return r;
+        }
+    </script>
     <title>new_post</title>
 </head>
 <?php session_start(); if($_SESSION['role']=="a" or $_SESSION['role']=="m"){?>
@@ -57,7 +63,7 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <center>
-                                        <button type="submit" class="btn btn-info btn-sm text-white">
+                                        <button type="submit" class="btn btn-info btn-sm text-white" onclick="return myFunction1();">
                                             <i class="bi bi-caret-right-square me-1"></i> บันทึกข้อความ</button>
                                     </center>
                                 </div>
@@ -67,23 +73,7 @@
             </div>
         </div>
         <div class="col-md-4"></div>
-    </div>
-    
-
-        <!--
-    ผู้ใช้งาน : <?php echo $_SESSION['username']; ?><br>
-    <table style="border: none;">
-        <tr><td>หมวดหมู่ : </td><td><select name="learn">
-            <option value="--All--">--ทั้งหมด--</option>
-            <option value="normal">เรื่องทั่วไป</option>
-            <option value="learn">เรื่องเรียน</option>
-        </select></td></tr>
-        <tr><td> หัวข้อ : </td><td><input type="text" name="headname" size="80%"></td></tr>
-        <tr><td>เนื้อหา : </td><td><textarea type="text" name="data" > </textarea></td></tr>
-        <tr><td></td><td><input type="submit" value="บันทึกข้อความ"></td></tr>
-    </table>
-</div>
-&nbsp;&nbsp;&nbsp;&nbsp; -->
+    </div>   
 </body>
 <?php } else{header("Location: index.php");die();}?>
 </html>
