@@ -59,12 +59,20 @@ session_start();
     <br>
     <table class="table table-striped">
     
-        <?php 
-            //$n = 1;
-            for($i=1;$i<=10;$i++)
-            echo "<tr><td><a href='post.php?id=$i' style='text-decoration:none;'>กระทู้ที่ $i</a></td></tr>";
+    <?php 
+            $conn = new PDO("mysql:host=localhost;dbname=webboard;charset=utf8","root","");
+            $sql_join = "SELECT post.id ,category.name, post.title, user.login ,post.post_date FROM post
+            INNER JOIN category ON category.id=post.cat_id
+            INNER JOIN user ON user.id=post.user_id
+            ORDER BY post.post_date DESC";
 
-        ?>  
+            foreach($conn->query($sql_join) as $row){ 
+            echo "<tr><td>[".$row['name']."] <a href='post.php?id=$row[id]' style='text-decoration:none;'>".$row['title']." </a><br>".$row['login'].
+            " - ".$row['post_date']."</td>";
+            echo "</tr>";
+            }
+            $conn=null;
+        ?> 
     
     </table>
     </div>
@@ -103,13 +111,13 @@ session_start();
     
         <?php 
             $conn = new PDO("mysql:host=localhost;dbname=webboard;charset=utf8","root","");
-            $sql_post = "SELECT * FROM post";
-            $sql_category = "SELECT * FROM category";
-            $sql_join = "SELECT category.name, post.title, user.login ,post.post_date FROM post
+            $sql_join = "SELECT post.id ,category.name, post.title, user.login ,post.post_date FROM post
             INNER JOIN category ON category.id=post.cat_id
-            INNER JOIN user ON user.id=post.user_id";
-            foreach($conn->query($sql_join) as $row){
-            echo "<tr><td>[".$row['name']."] <a href='' style='text-decoration:none;'>".$row['title']." </a><br>".$row['login'].
+            INNER JOIN user ON user.id=post.user_id
+            ORDER BY post.post_date DESC";
+
+            foreach($conn->query($sql_join) as $row){ 
+            echo "<tr><td>[".$row['name']."] <a href='post.php?id=$row[id]' style='text-decoration:none;'>".$row['title']." </a><br>".$row['login'].
             " - ".$row['post_date']."</td>";
             if($_SESSION['role']=='a'){
                 echo "<td><a href=delete.php?id=$i class='btn btn-danger btn-sm' onclick='return myFunction1();'><i class='bi bi-trash'></i></a></td>";
